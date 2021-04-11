@@ -1,20 +1,39 @@
 package com.example;
 import java.util.Scanner;
+import java.lang.Math;
 
 public class App {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String inputTicTacToe = input.nextLine();
-        input.close();
+        try {
+            Scanner input = new Scanner(System.in);
+            String inputTicTacToe = input.nextLine();
+            input.close();
 
-        int row = 9;
-        // String inputTicTacToe = "XXXOOOXXO";
-        char[] game = new char[row];
-        for (int i = 0; i < row; i++){
-            game[i] = inputTicTacToe.charAt(i);
+            int row = 9;
+            int countO = 0;
+            int countX = 0;
+            // String inputTicTacToe = "XXXOOOXXO";
+            char[] game = new char[row];
+            for (int i = 0; i < row; i++){
+                if(inputTicTacToe.charAt(i) == 'O'){
+                    countO++;
+                } else if(inputTicTacToe.charAt(i) == 'X'){
+                    countX++;
+                }
+                game[i] = inputTicTacToe.charAt(i);
+            }
+            int diffCount = Math.abs(countO - countX);
+            if(diffCount > 1){
+                System.out.println("Invalid game board");
+            } else{
+                String result = checkCondition(game);
+                System.out.println(result);
+            }
         }
-        String result = checkCondition(game);
-        System.out.println(result);
+        catch(Exception e) {
+            System.out.println("Invalid game board");
+        }
+        
     }
 
     public static String checkCondition(char[] game) {
