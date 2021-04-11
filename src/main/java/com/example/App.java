@@ -20,7 +20,6 @@ public class App {
             }
             String result = checkCondition(game);
             System.out.println(result);
-            logger()
         }
         catch(Exception e) {
             System.out.println(TEXT_INVALID);
