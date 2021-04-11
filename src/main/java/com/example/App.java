@@ -54,76 +54,26 @@ public class App {
     private static String checkWin(char[] game) {
         int attempt = 0;
         String result = null;
-        if((game[0] == game[1]) && (game[0] == game[2])){
-            if(game[0] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[0] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[3] == game[4]) && (game[3] == game[5])){
-            if(game[3] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[3] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[6] == game[7]) && (game[6] == game[8])){
-            if(game[6] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[6] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[0] == game[3]) && (game[0] == game[6])){
-            if(game[0] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[0] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[1] == game[4]) && (game[1] == game[7])){
-            if(game[1] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[1] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[2] == game[5]) && (game[2] == game[8])){
-            if(game[2] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[2] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[0] == game[4]) && (game[0] == game[8])){
-            if(game[0] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[0] == 'O'){
-                attempt++;
-                result = WinStatementO();
-            }
-        }
-        if((game[2] == game[4]) && (game[2] == game[6])){
-            if(game[2] == 'X'){
-                attempt++;
-                result = WinStatementX();
-            } else if(game[2] == 'O'){
-                attempt++;
-                result = WinStatementO();
+        int[][] idx = {
+            {0,1,2}, 
+            {3,4,5}, 
+            {6,7,8}, 
+            {0,3,6}, 
+            {1,4,7}, 
+            {2,5,8}, 
+            {0,4,8}, 
+            {2,4,6}, 
+        };
+
+        for (int i = 0; i < idx.length; i++){
+            if((game[idx[i][0]] == game[idx[i][1]]) && (game[idx[i][0]] == game[idx[i][2]])){
+                if(game[idx[i][0]] == 'X'){
+                    attempt++;
+                    result = WinStatementX();
+                } else if(game[idx[i][0]] == 'O'){
+                    attempt++;
+                    result = WinStatementO();
+                }
             }
         }
 
