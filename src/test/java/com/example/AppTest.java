@@ -190,4 +190,15 @@ public class AppTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    @Test 
+    void app_shouldReturnDrawTrueO_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "It’s a draw!";
+
+        char[] game = {'O','X','O','X','O','X','X','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
 }

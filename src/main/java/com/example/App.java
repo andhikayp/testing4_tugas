@@ -78,6 +78,9 @@ public class App {
                 return "O wins!";
             }
         }
+        else{
+            return "It’s a draw!";
+        }
         return "yes";
     }
 }
