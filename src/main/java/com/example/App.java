@@ -22,6 +22,11 @@ public class App {
                 return "Game still in progress!";
             }
         }
+        String winResult = checkWin(game);
+        return winResult;
+    }
+
+    private static String checkWin(char[] game) {
         if((game[0] == game[1]) && (game[0] == game[2])){
             if(game[0] == 'X'){
                 return "X wins!";
