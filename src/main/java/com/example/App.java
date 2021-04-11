@@ -43,7 +43,13 @@ public class App {
                 return "O wins!";
             }
         }
-
+        if((game[0] == game[3]) && (game[0] == game[6])){
+            if(game[0] == 'X'){
+                return "X wins!";
+            } else if(game[0] == 'O'){
+                return "O wins!";
+            }
+        }
 
         return "yes";
     }
