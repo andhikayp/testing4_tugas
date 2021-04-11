@@ -7,9 +7,9 @@ public class AppTest {
     @Test 
     void app_shouldReturnInProgress_whenInvoked(){
         App ticTacToe = new App(); //arrange
-        String expected = "Game still in progress!";
+        String expected = "Invalid game board";
 
-        char[] game = {'X','X','-','O','X','X','O','X','X','0'};
+        char[] game = {'X','X','-','O','X','X','O','X','X'};
         String result = ticTacToe.checkCondition(game); //act
 
         Assertions.assertEquals(expected, result); //assert
@@ -212,4 +212,29 @@ public class AppTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    //one player win before all board full
+    @Test 
+    void app_shouldReturnWinsBoardNotFull1_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "O wins!";
+
+        char[] game = {'-','O','X','-','O','X','-','O','-'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    //one player win before all board full
+    @Test 
+    void app_shouldReturnWinsBoardNotFull2_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "O wins!";
+
+        char[] game = {'O','X','X','X','O','X','-','-','O'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
+    
 }
