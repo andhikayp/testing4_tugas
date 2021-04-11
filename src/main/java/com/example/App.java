@@ -3,27 +3,33 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // Scanner input = new Scanner(System.in);
-        // String inputTicTacToe = input.nextLine();
-        // input.close();
+        Scanner input = new Scanner(System.in);
+        String inputTicTacToe = input.nextLine();
+        input.close();
 
-        int row = 8;
-        String inputTicTacToe = "XXXOOOXXO";
+        int row = 9;
+        // String inputTicTacToe = "XXXOOOXXO";
         char[] game = new char[row];
         for (int i = 0; i < row; i++){
             game[i] = inputTicTacToe.charAt(i);
         }
         String result = checkCondition(game);
+        System.out.println(result);
     }
 
     public static String checkCondition(char[] game) {
-        for (int i = 0; i < game.length; i++){
-            if(game[i] == '-'){
-                return "Game still in progress!";
-            }
-        }
+        // String inProgress = checkInProgress(game);
         String winResult = checkWin(game);
         return winResult;
+    }
+
+    private static Boolean checkInProgress(char[] game) {
+        for (int i = 0; i < game.length; i++){
+            if(game[i] == '-'){
+                return true;
+            }
+        }
+        return false;
     }
 
     private static String checkWin(char[] game) {
@@ -106,6 +112,8 @@ public class App {
             return result;
         } else if(attempt > 1){
             return "Invalid game board";
+        } else if(checkInProgress(game)){
+            return "Game still in progress!";
         } else{
             return "It’s a draw!";
         }
