@@ -1,8 +1,12 @@
 package com.example;
 import java.util.Scanner;
-import java.lang.Math;
 
 public class App {
+    static final String TEXT_INVALID = "Invalid game board";
+    static final String TEXT_IN_PROGRESS = "Game still in progress!";
+    static final String TEXT_DRAW = "It’s a draw!";
+    static final String TEXT_X_WIN = "X wins!";
+    static final String TEXT_O_WIN = "O wins!";
     public static void main(String[] args) {
         try {
             Scanner input = new Scanner(System.in);
@@ -10,16 +14,16 @@ public class App {
             input.close();
 
             int row = 9;
-            // String inputTicTacToe = "XXXOOOXXO";
             char[] game = new char[row];
             for (int i = 0; i < row; i++){
                 game[i] = inputTicTacToe.charAt(i);
             }
             String result = checkCondition(game);
             System.out.println(result);
+            logger()
         }
         catch(Exception e) {
-            System.out.println("Invalid game board");
+            System.out.println(TEXT_INVALID);
         }
         
     }
@@ -42,24 +46,24 @@ public class App {
             if((game[idx[i][0]] == game[idx[i][1]]) && (game[idx[i][0]] == game[idx[i][2]])){
                 if(game[idx[i][0]] == 'X'){
                     attempt++;
-                    result = WinStatementX();
+                    result = TEXT_X_WIN;
                 } else if(game[idx[i][0]] == 'O'){
                     attempt++;
-                    result = WinStatementO();
+                    result = TEXT_O_WIN;
                 }
             }
         }
 
         if(checkInvalidCountDiff(game)){
-            return "Invalid game board";
+            return TEXT_INVALID;
         } else if(attempt == 1){
             return result;
         } else if(attempt > 1){
-            return "Invalid game board";
+            return TEXT_INVALID;
         } else if(checkInProgress(game)){
-            return "Game still in progress!";
+            return TEXT_IN_PROGRESS;
         } else{
-            return "It’s a draw!";
+            return TEXT_DRAW;
         }
     }
 
@@ -84,13 +88,5 @@ public class App {
             }
         }
         return false;
-    }
-
-    private static java.lang.String WinStatementX() {
-        return "X wins!";
-    }
-
-    private static java.lang.String WinStatementO() {
-        return "O wins!";
     }
 }
