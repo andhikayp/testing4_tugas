@@ -27,65 +27,95 @@ public class App {
     }
 
     private static String checkWin(char[] game) {
+        int attempt = 0;
+        String result = null;
         if((game[0] == game[1]) && (game[0] == game[2])){
             if(game[0] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[0] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[3] == game[4]) && (game[3] == game[5])){
             if(game[3] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[3] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[6] == game[7]) && (game[6] == game[8])){
             if(game[6] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[6] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[0] == game[3]) && (game[0] == game[6])){
             if(game[0] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[0] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[1] == game[4]) && (game[1] == game[7])){
             if(game[1] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[1] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[2] == game[5]) && (game[2] == game[8])){
             if(game[2] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[2] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[0] == game[4]) && (game[0] == game[8])){
             if(game[0] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[0] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
         if((game[2] == game[4]) && (game[2] == game[6])){
             if(game[2] == 'X'){
-                return "X wins!";
+                attempt++;
+                result = WinStatementX();
             } else if(game[2] == 'O'){
-                return "O wins!";
+                attempt++;
+                result = WinStatementO();
             }
         }
-        else{
+
+        if(attempt == 1){
+            return result;
+        } else if(attempt > 1){
+            return "Invalid game board";
+        } else{
             return "It’s a draw!";
         }
-        return "yes";
+    }
+
+    private static java.lang.String WinStatementX() {
+        return "X wins!";
+    }
+
+    private static java.lang.String WinStatementO() {
+        return "O wins!";
     }
 }

@@ -75,7 +75,7 @@ public class AppTest {
         App ticTacToe = new App();
         String expected = "O wins!";
 
-        char[] game = {'X','X','O','X','O','X','O','O','O'};
+        char[] game = {'X','X','O','O','X','X','O','O','O'};
         String result = ticTacToe.checkCondition(game);
 
         Assertions.assertEquals(expected, result);
@@ -197,6 +197,17 @@ public class AppTest {
         String expected = "It’s a draw!";
 
         char[] game = {'O','X','O','X','O','X','X','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test 
+    void app_shouldReturnInvalidGameBoard_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "Invalid game board";
+
+        char[] game = {'X','X','X','O','O','O','X','X','O'};
         String result = ticTacToe.checkCondition(game);
 
         Assertions.assertEquals(expected, result);
