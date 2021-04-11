@@ -152,7 +152,7 @@ public class AppTest {
         App ticTacToe = new App();
         String expected = "X wins!";
 
-        char[] game = {'X','O','O','O','X','O','O','O','X'};
+        char[] game = {'X','O','X','O','X','O','O','O','X'};
         String result = ticTacToe.checkCondition(game);
 
         Assertions.assertEquals(expected, result);
@@ -244,6 +244,17 @@ public class AppTest {
         String expected = "Invalid game board";
 
         char[] game = {'-','O','X','-','O','X','-','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test 
+    void app_shouldReturnInvalidCountDiff_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "Invalid game board";
+
+        char[] game = {'X','O','O','O','X','O','O','O','X'};
         String result = ticTacToe.checkCondition(game);
 
         Assertions.assertEquals(expected, result);

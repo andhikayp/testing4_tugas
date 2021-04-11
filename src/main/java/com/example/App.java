@@ -10,25 +10,13 @@ public class App {
             input.close();
 
             int row = 9;
-            int countO = 0;
-            int countX = 0;
             // String inputTicTacToe = "XXXOOOXXO";
             char[] game = new char[row];
             for (int i = 0; i < row; i++){
-                if(inputTicTacToe.charAt(i) == 'O'){
-                    countO++;
-                } else if(inputTicTacToe.charAt(i) == 'X'){
-                    countX++;
-                }
                 game[i] = inputTicTacToe.charAt(i);
             }
-            int diffCount = Math.abs(countO - countX);
-            if(diffCount > 1){
-                System.out.println("Invalid game board");
-            } else{
-                String result = checkCondition(game);
-                System.out.println(result);
-            }
+            String result = checkCondition(game);
+            System.out.println(result);
         }
         catch(Exception e) {
             System.out.println("Invalid game board");
@@ -37,21 +25,6 @@ public class App {
     }
 
     public static String checkCondition(char[] game) {
-        // String inProgress = checkInProgress(game);
-        String winResult = checkWin(game);
-        return winResult;
-    }
-
-    private static Boolean checkInProgress(char[] game) {
-        for (int i = 0; i < game.length; i++){
-            if(game[i] == '-'){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static String checkWin(char[] game) {
         int attempt = 0;
         String result = null;
         int[][] idx = {
@@ -77,7 +50,9 @@ public class App {
             }
         }
 
-        if(attempt == 1){
+        if(checkInvalidCountDiff(game)){
+            return "Invalid game board";
+        } else if(attempt == 1){
             return result;
         } else if(attempt > 1){
             return "Invalid game board";
@@ -86,6 +61,29 @@ public class App {
         } else{
             return "It’s a draw!";
         }
+    }
+
+    private static boolean checkInvalidCountDiff(char[] game) {
+        int countO = 0;
+        int countX = 0;
+        for (int i = 0; i < game.length; i++){
+            if(game[i] == 'O'){
+                countO++;
+            } else if(game[i] == 'X'){
+                countX++;
+            }
+        }
+        int diffCount = Math.abs(countO - countX);
+        return diffCount > 1 ? true : false;
+    }
+    
+    private static boolean checkInProgress(char[] game) {
+        for (int i = 0; i < game.length; i++){
+            if(game[i] == '-'){
+                return true;
+            }
+        }
+        return false;
     }
 
     private static java.lang.String WinStatementX() {
