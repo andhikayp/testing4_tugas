@@ -24,4 +24,26 @@ public class AppTest {
 
         Assertions.assertEquals(expected, result); //assert
     } 
+
+    @Test 
+    void app_shouldReturnHorizontalFirstTrueX_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "X wins!";
+
+        char[] game = {'X','X','X','O','O','X','O','X','O'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    } 
+
+    @Test 
+    void app_shouldReturnHorizontalFirstTrue0_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "O wins!";
+
+        char[] game = {'O','O','O','X','X','O','X','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    } 
 }

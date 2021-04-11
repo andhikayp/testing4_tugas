@@ -22,6 +22,13 @@ public class App {
                 return "Game still in progress!";
             }
         }
+        if((game[0] == game[1]) && (game[0] == game[2])){
+            if(game[0] == 'X'){
+                return "X wins!";
+            } else if(game[0] == 'O'){
+                return "O wins!";
+            }
+        }
         return "yes";
     }
 }
