@@ -236,5 +236,16 @@ public class AppTest {
 
         Assertions.assertEquals(expected, result);
     }
-    
+
+    //invalid board when in progress
+    @Test 
+    void app_shouldReturnInvalidInProgress_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "Invalid game board";
+
+        char[] game = {'-','O','X','-','O','X','-','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
 }
