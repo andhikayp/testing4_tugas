@@ -29,6 +29,14 @@ public class App {
                 return "O wins!";
             }
         }
+        if((game[3] == game[4]) && (game[3] == game[5])){
+            if(game[3] == 'X'){
+                return "X wins!";
+            } else if(game[3] == 'O'){
+                return "O wins!";
+            }
+        }
+
         return "yes";
     }
 }
