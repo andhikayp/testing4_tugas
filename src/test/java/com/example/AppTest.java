@@ -147,4 +147,25 @@ public class AppTest {
         Assertions.assertEquals(expected, result);
     }
 
+    @Test 
+    void app_shouldReturnDiagonalRightTrueX_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "X wins!";
+
+        char[] game = {'X','O','O','O','X','O','O','O','X'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test 
+    void app_shouldReturnDiagonalRightTrueO_whenInvoked(){
+        App ticTacToe = new App();
+        String expected = "O wins!";
+
+        char[] game = {'O','O','X','X','O','X','X','X','O'};
+        String result = ticTacToe.checkCondition(game);
+
+        Assertions.assertEquals(expected, result);
+    }
 }
